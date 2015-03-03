@@ -8,7 +8,7 @@ gem 'sqlite3', '1.3.6'
 group :development do
   gem 'rspec', '2.11.0'
   gem 'cucumber', '1.2.1'
-  gem 'capybara', '2.0.0.beta2'
+  gem 'capybara'
   gem 'launchy', '2.1.0'
   gem 'database_cleaner', '0.8.0'
 end

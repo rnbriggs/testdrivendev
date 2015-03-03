@@ -1,25 +1,8 @@
 require_relative 'transaction_queue'
 require_relative 'account'
-#require_relative 'balance_store'
+require 'sinatra'
 
-=begin
-class Account
-	def initialize
-		@queue = TransactionQueue.new
-		@balance_store = BalanceStore.new
-	end
-	def credit(amount)
-		@queue.write("+#{amount}")
-	end
-	
-	def balance
-		@balance_store.balance
-	end
-	def debit(amount)
-		@queue.write("-#{amount}")
-	end
-end
-=end
+
 
 # using dependency injection to pass CashSlot to Teller's constructor
 class Teller
@@ -41,23 +24,22 @@ class CashSlot
 	end
 end
 
-require 'sinatra'
-	get '/' do 
- 		%{ 
-	 < html >
-		 < body > 
-			 < form action ="/ withdraw" method =" post” >
-				 < label for =" amount" > Amount </ label > 
-				 < input type =" text" id =" amount" name =" amount" > 
-				 < button type =" submit" > Withdraw </ button >
-			 </ form >
-		 </ body >
-	 </ html>
-}
-end
+get '/' do
+	%{
+	<html>
+		<body>
+			<form action="/withdraw" method="post”>
+				<label for="Amount">Amount</label>
+				<input type="text" id="Amount" name="Amount”>
+<button type="submit">Withdraw</button>
+			</form>
+		</body>
+	</html> 
+ 	} 
+ end 
 
 post '/withdraw' do
-fail "I don't know how to withraw yet, sorry"
+	fail "I don't know how to withdraw yet sorry"
 end
 
 set :cash_slot, CashSlot.new

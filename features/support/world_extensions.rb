@@ -1,16 +1,17 @@
 # define my_account and told Cucumber to put it into the world
 #module KnowsTheDomain
-module KnowsTheUserInterface
-	class UserInterface
-		include Capybara::DSL
-		def withdraw_from(account, amount)
-			Sinatra::Application.account = account
-			visit '/'
-			fill_in 'Amount', :with => amount
-			click_button 'Withdraw'
-		end
+
+class UserInterface
+	include Capybara::DSL
+	def withdraw_from(account, amount)
+		Sinatra::Application.account = account
+		visit '/'
+		fill_in 'Amount', :with => amount
+		click_button 'Withdraw'
 	end
-		
+end
+
+module KnowsTheUserInterface
 	def my_account
 		@my_account ||= Account.create!(:number => "test", :balance => 0)
 	end
