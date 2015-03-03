@@ -1,6 +1,8 @@
 require_relative 'transaction_queue'
-require_relative 'balance_store'
+require_relative 'account'
+#require_relative 'balance_store'
 
+=begin
 class Account
 	def initialize
 		@queue = TransactionQueue.new
@@ -17,6 +19,7 @@ class Account
 		@queue.write("-#{amount}")
 	end
 end
+=end
 
 # using dependency injection to pass CashSlot to Teller's constructor
 class Teller
