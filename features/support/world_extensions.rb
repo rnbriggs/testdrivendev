@@ -12,8 +12,7 @@ module KnowsTheUserInterface
 	end
 		
 	def my_account
-		@my_account ||= Account.create!
-		(:number => "test", :balance => 0)
+		@my_account ||= Account.create!(:number => "test", :balance => 0)
 	end
 	def cash_slot
 		#@cash_slot ||= CashSlot.new
