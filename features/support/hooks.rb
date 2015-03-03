@@ -1,7 +1,8 @@
 Before do
-	puts "Go!"
+	BalanceStore.new.balance = 0
+	TransactionQueue.clear
 end
 
-After do
-	puts "Stop!"
-end
+#After do
+	#puts "Stop!"
+#end
