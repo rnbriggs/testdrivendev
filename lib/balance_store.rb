@@ -8,3 +8,4 @@ class BalanceStore
 			f.puts(new_balance)}
 	end
 end
+
